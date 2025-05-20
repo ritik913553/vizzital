@@ -19,7 +19,8 @@ const App = () => {
         <>
             {/* {loading && <Loading />} */}
             {/* <Loading /> */}
-           {loading ? <Loading /> : <Home animate={animateHome} />}
+            {/* <Home animate={animateHome} /> */}
+            {loading ? <Loading /> : <Home animate={animateHome} />}
         </>
     );
 };

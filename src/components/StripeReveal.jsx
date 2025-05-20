@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+import { anticipate, easeInOut, motion } from "framer-motion";
 
 const stripeCount = 14;
 
@@ -24,9 +24,9 @@ const StripeReveal = ({ onFinish }) => {
                         initial={{ y: "-100%" }}
                         animate={{ y: "0%" }}
                         transition={{
-                            duration: 0.6,
+                            duration: 1.3,
                             delay: i * 0.1,
-                            ease: "easeInOut",
+                            ease: easeInOut,
                         }}
                     />
                 ))}
