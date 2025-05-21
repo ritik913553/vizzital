@@ -1,213 +1,362 @@
-import React, { useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    company: "",
-    address: "",
-    budget: "",
-    details: "",
-    reference: ""
-  });
+const heroRef = useRef(null);
+  const heroLetters = "CONTACT".split("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
+  useEffect(() => {
+    if (heroRef.current) {
+      const letters = heroRef.current.querySelectorAll(".hero-letter");
+      letters.forEach((el, i) => {
+        setTimeout(() => {
+          el.style.opacity = 1;
+          el.style.transform = "translateY(0)";
+        }, i * 100);
+      });
+    }
+  }, []);
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 overflow-hidden">
+    <div className="min-h-screen bg-black flex flex-col">
+     
+
+      {/* Hero Section */}
+       <section className="relative flex flex-col items-center justify-center py-20 md:py-28 overflow-hidden bg-black">
       {/* Animated Gradient Background */}
-      <div className="absolute inset-0 overflow-hidden -z-10">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 opacity-20 animate-gradient-xy"></div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            "linear-gradient(120deg, #2d3aef 0%, #6e3ff7 50%, #00c6fb 100%)",
+          backgroundSize: "200% 200%",
+          animation: "gradientMove 8s ease-in-out infinite alternate",
+        }}
+      />
 
-      {/* Top Section - Contact Info */}
-      <div className="max-w-4xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden mb-8 animate-fade-in">
-        <div className="bg-gradient-to-br from-indigo-600 to-purple-700 p-8 md:p-12 text-white flex flex-col justify-center">
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">Let's Talk About Your</h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-yellow-300 leading-tight">Business Objectives</h3>
-            <p className="text-xl opacity-90">
-              Discover how we can produce meaningful
-              <br />
-              results for your company
-            </p>
-          </div>
+      {/* Foreground Content */}
+      <div className="relative z-10 max-w-3xl w-full text-center">
+        {/* Heading */}
+        <motion.h1
+          initial={{ x: -500, opacity: 0, scale: 0.8 }}
+          animate={{ x: -350, opacity: 1, scale: 1.1 }}
+          transition={{ duration: 1 }}
+          className="text-4xl md:text-6xl font-bold text-white mb-6"
+        >
+          Let’s Talk About Your Business Objectives
+        </motion.h1>
 
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold mb-4">Let's Bring Your Idea To Life Together.</h3>
-            <div className="space-y-2">
-              <p className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                +91 98304 56030
-              </p>
-              <p className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                contact@example.com
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+        {/* Subheading */}
+        <motion.p
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 200, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="text-lg md:text-2xl text-blue-100 mb-8"
+        >
+          Discover how we can produce meaningful
+          <br />
+          <span className="text-2xl">results for your company.</span>
+        </motion.p>
 
-      {/* Bottom Section - Contact Form */}
-      <div className="max-w-4xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden animate-fade-in animate-delay-200">
-        <div className="p-8 md:p-12">
-          <form className="space-y-6">
-            {/* First and Last Name */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">First Name*</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                  placeholder="Your First Name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Last Name*</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                  placeholder="Your Last Name"
-                  required
-                />
-              </div>
-            </div>
-
-            {/* Email */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email*</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Your email"
-                required
-              />
-            </div>
-
-            {/* Phone */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Your phone number"
-                required
-              />
-            </div>
-
-            {/* Company */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Company Name*</label>
-              <input
-                type="text"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Your Company"
-                required
-              />
-            </div>
-
-            {/* Address Option */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Choose Option*</label>
-              <select
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                required
-              >
-                <option value="">Select an option</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </select>
-            </div>
-
-            {/* Budget */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Estimated Budget</label>
-              <select
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-              >
-                <option value="">Choose option</option>
-                <option value="1k-5k">$1,000 - $5,000</option>
-                <option value="5k-10k">$5,000 - $10,000</option>
-                <option value="10k-25k">$10,000 - $25,000</option>
-                <option value="25k+">$25,000+</option>
-              </select>
-              <p className="text-xs text-gray-500 mt-1">Don't be shy! The more details, the better.</p>
-            </div>
-
-            {/* Project Details */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Tell us about your project</label>
-              <textarea
-                name="details"
-                value={formData.details}
-                onChange={handleChange}
-                rows={3}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="In short words, tell us about your project."
-              />
-            </div>
-
-            {/* Reference */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Reference by</label>
-              <input
-                type="text"
-                name="reference"
-                value={formData.reference}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Who referred you?"
-              />
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-indigo-600 text-white py-3 px-6 rounded-md font-medium hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        {/* Animated "CONTACT" Letters */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 110 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="mt-12 flex justify-center gap-1 md:gap-3 overflow-hidden"
+          ref={heroRef}
+        >
+          {heroLetters.map((l, i) => (
+            <span
+              key={i}
+              className="hero-letter text-white font-extrabold text-6xl md:text-8xl tracking-wider transform translate-y-8 opacity-0 transition duration-500"
+              style={{
+                clipPath: "inset(0 0 0 0)", // bottom half hidden
+              }}
             >
-              Request a Quote
-            </button>
-          </form>
-        </div>
+              {l}
+            </span>
+          ))}
+        </motion.div>
       </div>
+    </section>
+
+{/* contact form  */}
+      <section className="min-h-screen bg-black px-6 py-20 flex flex-col items-center justify-start">
+      {/* Animated Heading */}
+      <motion.h2
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+        className="text-white text-4xl md:text-3xl font-extrabold mb-16 text-center"
+      >
+        Let’s Bring Your Idea To Life Together.
+      </motion.h2>
+
+      <form className="w-full max-w-3xl space-y-10">
+        {/* First Name */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={1}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="firstName" className="text-sm mb-2">First name *</label>
+          <input
+            type="text"
+            id="firstName"
+            placeholder="Your First Name"
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 focus:outline-none"
+          />
+        </motion.div>
+
+        {/* Last Name */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={2}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="lastName" className="text-sm mb-2">Last name *</label>
+          <input
+            type="text"
+            id="lastName"
+            placeholder="Your Last Name"
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 focus:outline-none"
+          />
+        </motion.div>
+
+        {/* Email */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={3}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="email" className="text-sm mb-2">E-Mail *</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Your email"
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 focus:outline-none"
+          />
+        </motion.div>
+
+        {/* Phone */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={4}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="phone" className="text-sm mb-2">Phone Number *</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Your phone number"
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 focus:outline-none"
+          />
+        </motion.div>
+
+        {/* Company Name */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={5}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="company" className="text-sm mb-2">Company Name *</label>
+          <input
+            type="text"
+            id="company"
+            placeholder="Your Company Name"
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 focus:outline-none"
+          />
+        </motion.div>
+
+        {/* Choose the service */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={6}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="service" className="text-sm mb-2">Choose the service *</label>
+          <select
+            id="service"
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 "
+          >
+            <option value="">Select a service</option>
+            <option>Web Development</option>
+            <option>Mobile App</option>
+            <option>Branding</option>
+            <option>UI/UX Design</option>
+          </select>
+        </motion.div>
+
+        {/* Estimated Budget */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={7}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="budget" className="text-sm mb-2">Estimated Budget *</label>
+          <select
+            id="budget"
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 focus:outline-none"
+          >
+            <option value="">Select a budget</option>
+            <option>Under $1,000</option>
+            <option>$1,000 - $5,000</option>
+            <option>$5,000 - $10,000</option>
+            <option>Above $10,000</option>
+          </select>
+        </motion.div>
+
+        {/* Describe your project */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={8}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="project" className="text-sm mb-2">Describe your project *</label>
+          <textarea
+            id="project"
+            rows="4"
+            placeholder="Give us a brief idea of what you're working on..."
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 focus:outline-none resize-none"
+          />
+        </motion.div>
+
+        {/* Referred By */}
+        <motion.div
+          className="flex flex-col text-white"
+          custom={9}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <label htmlFor="referral" className="text-sm mb-2">Referred By</label>
+          <input
+            type="text"
+            id="referral"
+            placeholder="Optional"
+            className="bg-transparent border-b-2 border-gray-500 text-xl py-2 focus:outline-none"
+          />
+        </motion.div>
+
+        {/* Submit Button */}
+         <motion.div className="flex justify-center pt-10" custom={10} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+          <button
+            type="submit"
+            className="bg-blue-300 text-black text-lg font-semibold px-8 py-3 rounded-full hover:bg-blue-500 transition duration-300"
+          >
+            Request a Quote
+          </button>
+        </motion.div>
+      </form>
+    </section>
+
+      {/* Footer */}
+    <footer className="bg-gradient-to-b from-blue-900 via-purple-900 to-pink-900 text-white py-16 px-6 text-center">
+  {/* Newsletter Section */}
+  <div className="max-w-xl mx-auto mb-12">
+    <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+      Let's shape your brand goals together.
+    </h2>
+    <form className="flex flex-col items-center gap-3">
+      <input
+        type="email"
+        required
+        placeholder="Your email here"
+        className="w-full md:w-3/4 px-4 py-3 rounded-md bg-white/10 text-white placeholder-gray-300 border border-blue-500 focus:ring-2 focus:ring-blue-400 outline-none"
+      />
+      <button
+        type="submit"
+        className="bg-white text-black font-semibold py-2 px-6 rounded-md hover:bg-gray-200 transition"
+      >
+        Subscribe
+      </button>
+      <label className="text-xs text-gray-300 flex items-center justify-center gap-2 mt-1">
+        <input type="checkbox" defaultChecked className="accent-blue-500" />
+        By clicking Subscribe, you agree to receive emails from ALH Media.
+      </label>
+    </form>
+  </div>
+
+  <div className="flex  md:flex-row justify-between items-center mb-10">
+  {/* Company Links */}
+  <div className="mb-10">
+    <h3 className="text-lg font-semibold mb-2">Company</h3>
+    <a href="/about" className="block text-sm text-blue-200 hover:text-white mb-1">About Company</a>
+    <a href="/contact" className="block text-sm text-blue-200 hover:underline underline-offset-4">Contact</a>
+  </div>
+
+  {/* Contact Information */}
+  <div className="text-sm text-blue-100 mb-12">
+    <p>
+      <strong>Jharkhand</strong><br />
+    
+Gangotri Enclave , Kadma , Jamshedpur
+    </p>
+    <p className="mt-4">
+      <strong>Contact</strong><br />
+      <a href="mailto:Info@vizztal.com" className="hover:underline ">Info@vizztal.com</a>
+      {/* <a href="mailto:vizztaljsr@gmail.com" className="hover:underline">vizztaljsr@gmail.com</a> */}
+    </p>
+  </div> 
+  </div>
+
+
+
+  {/* Bottom Credit */}
+  <div className="text-xs text-blue-200">
+    © 2025   - Vizztal
+   
+  </div>
+</footer>
+
+
+    
     </div>
   );
 };
