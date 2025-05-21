@@ -4,3 +4,16 @@
 button{
     cursor: pointer;
 }
+
+body::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+}
+html , body{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
