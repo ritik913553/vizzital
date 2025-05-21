@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./components/Loading";
 import Home from "./components/Home";
+import Contact from "./pages/Contact";
+import Pricing from "./pages/Pricing";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -20,7 +22,9 @@ const App = () => {
             {/* {loading && <Loading />} */}
             {/* <Loading /> */}
             {/* <Home animate={animateHome} /> */}
-            {loading ? <Loading /> : <Home animate={animateHome} />}
+            {/* {loading ? <Loading /> : <Home animate={animateHome} />} */}
+            {/* <Contact/> */}
+            <Pricing/>
         </>
     );
 };
