@@ -30,7 +30,7 @@ const FetureData = [
 
 const FeatureCards = () => {
     return (
-        <div className="mt-30">
+        <div className="sm:mt-30 mt-20">
           {FetureData.map((feature,index)=>{
             return <FeatureCard key={index} feature={feature} />
           })}

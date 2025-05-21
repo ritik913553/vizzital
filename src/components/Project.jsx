@@ -14,10 +14,10 @@ function Project({ project, mover, count }) {
           console.log("Mouse entered project:", count); // Debugging
           mover(count);
         }}
-        className="max-w-screen-lg mx-auto flex items-center justify-between"
+        className="max-w-screen-lg mx-auto flex flx-col sm:flex-row items-center justify-between"
       >
-        <h1 className="text-5xl capitalize font-medium">{project.title}</h1>
-        <div className="dets w-1/3">
+        <h1 className="text-5xl  block  capitalize font-medium">{project.title}</h1>
+        <div className="dets sm:w-1/3">
           <p className="mb-7">{project.description}</p>
           <div className="flex items-center gap-5">
             {project.live && <Button />}

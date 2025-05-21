@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./components/Loading";
 import Home from "./components/Home";
-import Contact from "./pages/Contact";
-import Pricing from "./pages/Pricing";
+import { Route, Router, Routes } from "react-router-dom";
+import Website from "./pages/Website";
+import Digital from "./pages/Digital";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -19,12 +20,17 @@ const App = () => {
 
     return (
         <>
-            {/* {loading && <Loading />} */}
-            {/* <Loading /> */}
-            {/* <Home animate={animateHome} /> */}
-            {/* {loading ? <Loading /> : <Home animate={animateHome} />} */}
-            {/* <Contact/> */}
-            <Pricing/>
+            {loading ? (
+                <Loading />
+            ) : (
+                <Routes>
+                    <Route path="/" element={<Home animate={animateHome} />} />
+                    <Route path="/website" element={<Website />} />
+                    <Route path="/digital" element={<Digital />} />
+                    {/* <Route path="/contact" element={<Contact />} /> */}
+                    {/* <Route path="/projects" element={<Projects />} /> */}
+                </Routes>
+            )}
         </>
     );
 };

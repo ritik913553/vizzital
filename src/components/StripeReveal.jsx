@@ -15,7 +15,7 @@ const StripeReveal = ({ onFinish }) => {
         };
     }, []);
     return (
-        <div className="w-full h-screen bg-gray-900 relative overflow-hidden text-white z-100">
+        <div className="w-screen h-screen bg-gray-900 relative overflow-hidden text-white z-100">
             <div className="flex w-full h-full absolute top-0 left-0 z-50">
                 {Array.from({ length: stripeCount }).map((_, i) => (
                     <motion.div
