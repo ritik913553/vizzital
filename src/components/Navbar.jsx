@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const Navbar = ({ scrolled }) => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-    console.log(scrolled);
     return !menuIsOpen ? (
         <div
             className={`w-full fixed z-[999] transition-colors duration-300 ${

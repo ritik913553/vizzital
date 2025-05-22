@@ -16,7 +16,6 @@ const App = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            console.log(window.scrollY);
             if (window.scrollY >= window.innerHeight) {
                 setScrolled(true);
             } else {

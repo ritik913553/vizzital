@@ -11,7 +11,6 @@ function Project({ project, mover, count }) {
       }
       }
         onMouseEnter={() => {
-          console.log("Mouse entered project:", count); // Debugging
           mover(count);
         }}
         className="max-w-screen-lg mx-auto flex flx-col sm:flex-row items-center justify-between"
