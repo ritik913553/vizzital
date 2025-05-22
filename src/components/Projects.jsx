@@ -8,13 +8,12 @@ import Project from "./Project";
 import ProjectPhone from "./ProjectPhone";
 
 function Projects() {
-    var projects = [
+    const projects = [
         {
             title: "arqitel",
             description:
                 "The Enneagram Type 1, also known as The Reformer, is a personality type characterized by a strong sense of right and wrong, with a desire to improve and reform themselves and others.",
             live: true,
-            case: false,
             video:'./src/assets/video-1.webm'
         },
         {
@@ -22,7 +21,6 @@ function Projects() {
             description:
                 "They are conscientious, ethical, and well-organized, striving to maintain high standards, but can also be critical and perfectionistic. This type is often driven by a fear of money hero is  ",
             live: true,
-            case: false,
             video:'./src/assets/video2.webm'
         },
         {
@@ -30,7 +28,6 @@ function Projects() {
             description:
                 "n contrast, Para One, a French electronic music producer and film director, is a distinct entity, known for his work on soundtracks for films like “Water Lilies” and “Portrait of a Lady on Fire”",
             live: true,
-            case: false,
             video:'./src/assets/video3.webm'
         },
         {
@@ -38,7 +35,6 @@ function Projects() {
             description:
                 "as well as his contributions to French rap group TTC. The term “one” can also refer to a single unit or thing, as defined by Ritik.Hard work is necessary for ourself",
             live: true,
-            case: true,
             video:'./src/assets/video4.webm'
         },
     ];

@@ -1,7 +1,9 @@
+import { HiH1 } from "react-icons/hi2";
 import FeatureCard from "../FeatureCard";
 import FeatureCards from "../FeatureCards";
 import Projects from "../Projects";
-import "./Landing.css";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Landing() {
     return (
@@ -11,16 +13,82 @@ function Landing() {
 
                 {/* Content - added relative and z-10 */}
                 <div className="relative sm:mt-20 mt-50  ">
-                    <h2 className="text-5xl  ">World class</h2>
-                    <h2 className="text-4xl mt-2">marketing.</h2>
-                    <h2 className="text-5xl mt-2 font-bold">Made simple.</h2>
-                    <button className="mt-1 px-7 py-3 bg-blue-600 text-white rounded-lg font-bold">
-                        Request Meeting
-                    </button>
+                    <h2 className="text-5xl  overflow-hidden">
+                        <motion.span
+                            initial={{ rotate: "70deg", y: "40%", opacity: 0 }}
+                            whileInView={{ rotate: 0, y: 0, opacity: 1 }}
+                            viewport={{ once: true }} //kewl ek bar chlega animation
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                                delay: .5,
+                            }}
+                            className="inline-block origin-left"
+                        >
+                            World class
+                        </motion.span>
+                    </h2>
+                    <h2 className="text-4xl mt-2 overflow-hidden">
+                        <motion.span
+                            initial={{ rotate: "70deg", y: "40%", opacity: 0 }}
+                            whileInView={{ rotate: 0, y: 0, opacity: 1 }}
+                            viewport={{ once: true }} //kewl ek bar chlega animation
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                                delay: .5,
+                            }}
+                            className="inline-block origin-left"
+                        >
+                            marketing.
+                        </motion.span>
+                    </h2>
+                    <h2 className="text-5xl mt-2 font-bold overflow-hidden">
+                        <motion.span
+                            initial={{ rotate: "70deg", y: "40%", opacity: 0 }}
+                            whileInView={{ rotate: 0, y: 0, opacity: 1 }}
+                            viewport={{ once: true }} //kewl ek bar chlega animation
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                                delay: .5,
+                            }}
+                            className="inline-block origin-left"
+                        >
+                            Made simple.
+                        </motion.span>
+                    </h2>
+                    <div className="overflow-hidden">
+                        <motion.div
+                            initial={{ rotate: "30deg", y: "20%", opacity: 0 }}
+                            whileInView={{ rotate: 0, y: 0, opacity: 1 }}
+                            viewport={{ once: true }} //kewl ek bar chlega animation
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                                delay: .6,
+                            }}
+                            className="inline-block mt-1  px-7 py-3 text-xl bg-blue-600 text-white rounded-lg font-bold origin-left"
+                        >
+                            <Link to="/contact">Request Meeting</Link>
+                        </motion.div>
+                    </div>
                 </div>
-                <div className=" sm:-mt-15 mt-20">
-                    <h1 className="text-[22vw] sm:text-[20vw] font-black ">GROWTH</h1>
-                </div>
+                <h1 className="growth text-[21vw] sm:text-[20vw] font-black  sm:-mt-15 mt-20 overflow-hidden">
+                    <motion.span
+                        initial={{ rotate: "70deg", y: "40%", opacity: 0 }}
+                        whileInView={{ rotate: 0, y: 0, opacity: 1 }}
+                        viewport={{ once: true }} //kewl ek bar chlega animation
+                        transition={{
+                            ease: [0.22, 1, 0.36, 1],
+                            duration: 0.8,
+                            delay: 1,
+                        }}
+                        className="inline-block origin-left"
+                    >
+                        GROWTH
+                    </motion.span>
+                </h1>
             </div>
             <div className="w-full sm:min-h-screen bg-black p-6 sm:p-22 pb-2">
                 <h1 className="mt-10 text-2xl sm:text-4xl w-full  text-start sm:w-[70%] mx-auto sm:leading-12">
@@ -30,21 +98,29 @@ function Landing() {
                 </h1>
                 <div className="h-[1px] bg-white mt-15 opacity-50 "></div>
                 <div className="mt-7 sm:ml-5">
-                    <h1
-                        className="text-[8.4vw] sm:text-[7vw] font-bold text-transparent bg-clip-text"
-                        style={{
-                            background:
-                                "linear-gradient(279deg,rgba(250, 36, 9, 1) 0%, rgba(250, 36, 9, 1) 20%, rgba(212, 205, 23, 1) 57%, rgba(250, 25, 235, 1) 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            
-                        }}
-                    >
-                        Crafting The Right
+                    <h1 className="text-[8.4vw] sm:text-[7vw] font-bold text-transparent  overflow-hidden">
+                        <motion.span
+                            style={{
+                                background:
+                                    "linear-gradient(279deg,rgba(250, 36, 9, 1) 0%, rgba(250, 36, 9, 1) 20%, rgba(212, 205, 23, 1) 57%, rgba(250, 25, 235, 1) 100%)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                            }}
+                            initial={{ x: "-50%", opacity: 0 }}
+                            whileInView={{ x: "50%", opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                            }}
+                            className="inline-block origin-left  -translate-x-[50%] opacity-0 bg-clip-text"
+                        >
+                            Crafting The Right
+                        </motion.span>
                     </h1>
                 </div>
-                <div className="sm:ml-92 ml-18">
-                    <h1
+                <div className="sm:ml-92 ml-18 overflow-hidden">
+                    <motion.h1
                         className="text-[8.4vw] sm:text-[6.5vw] font-bold  sm:leading-23 bg-clip-text"
                         style={{
                             background:
@@ -52,29 +128,103 @@ function Landing() {
                             webkitBackgroundClip: "text",
                             webkitTextFillColor: "transparent",
                         }}
+                        initial={{ x: "-50%", opacity: 0 }}
+                        whileInView={{ x: "0%", opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            ease: [0.22, 1, 0.36, 1],
+                            duration: 0.8,
+                        }}
                     >
                         Growth Strategies
-                    </h1>
+                    </motion.h1>
                 </div>
             </div>
             <div className="w-full bg-gradient-to-b from-black to-[#1A82FC] p-6 sm:px-22 py-8">
-                <div className="text-3xl sm:text-4xl font-thin mt-5 ">
-                    <h1>Our team has the experience</h1>
-                    <h1>needed to achieve your goals.</h1>
+                <div className="text-2xl sm:text-4xl font-thin mt-5 overflow-hidden">
+                    <motion.h1
+                        initial={{ x: "-60%", opacity: 0 }}
+                        whileInView={{ x: "0%", opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            ease: [0.22, 1, 0.36, 1],
+                            duration: 0.8,
+                            delay: 0.3,
+                        }}
+                        className=""
+                    >
+                        Our team has the experience
+                    </motion.h1>
+                    <motion.h1
+                        initial={{ x: "-60%", opacity: 0 }}
+                        whileInView={{ x: "0%", opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            ease: [0.22, 1, 0.36, 1],
+                            duration: 0.8,
+                            delay: 0.3,
+                        }}
+                        className=""
+                    >
+                        needed to achieve your goals.
+                    </motion.h1>
                 </div>
             </div>
             <div className="w-full min-h-screen bg-[#1A82FC] p-6 sm:px-22 py-5">
                 <div className="flex flex-col sm:flex-row mt-10 sm:mt-7 justify-between gap-5">
-                    <div className="sm:w-[60%]  text-5xl sm:text-8xl font-sans-serif font-bold sm:leading-27">
-                        <h1>Services</h1>
-                        <h1>That Sapes</h1>
-                        <h1>Destinies</h1>
+                    <div className="sm:w-[60%]  text-5xl sm:text-8xl font-sans-serif font-bold sm:leading-27 overflow-hidden">
+                        <motion.h1
+                            initial={{ x: "-60%", opacity: 0 }}
+                            whileInView={{ x: "0%", opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                            }}
+                            className=""
+                        >
+                            Services
+                        </motion.h1>
+                        <motion.h1
+                            initial={{ x: "-60%", opacity: 0 }}
+                            whileInView={{ x: "0%", opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                                delay: 0.3,
+
+                            }}
+                            className=""
+                        >
+                            That Sapes
+                        </motion.h1>
+                        <motion.h1
+                            initial={{ x: "-60%", opacity: 0 }}
+                            whileInView={{ x: "0%", opacity: 1 }}
+                            viewport={{ once: true, margin: "-40% 0px" }}
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                            }}
+                            className=""
+                        >
+                            Destinies
+                        </motion.h1>
                     </div>
-                    <div className=" flex items-end mt-1 sm:w-[45%]">
-                        <h3 className="sm:text-xl text-2xl  font-light">
+                    <div className=" flex items-end mt-1 sm:w-[45%] overflow-hidden">
+                        <motion.h3 
+                            initial={{ y: "60%", opacity: 0 }}
+                            whileInView={{ y: "0%", opacity: 1 }}
+                            viewport={{ once: true ,margin: "-40% 0px"}}
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                            }}
+                        className="sm:text-xl text-2xl  font-light">
                             Discover a world where creativity knows no bounds
                             and your dreams take center stage.
-                        </h3>
+                        </motion.h3>
                     </div>
                 </div>
                 <FeatureCards />

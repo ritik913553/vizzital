@@ -3,11 +3,20 @@ import { FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const AnimatedButton = ({ text }) => {
+const AnimatedButton = ({ text, closeMenu }) => {
+    const route =
+        text.toLowerCase() === "home"
+            ? "/"
+            : text.toLowerCase() === "contact us"
+            ? "/contact"
+            : text.toLowerCase() === "about us"
+            ? "/about"
+            : `/${text.toLowerCase()}`;
+
     return (
-        <Link to={`/${text}`} >
+        <Link to={route} onClick={closeMenu}>
             <motion.div
-                className="button mb-2  flex text-[9vw] sm:text-[5.3vw] font-bold gap-x-3 items-center px-3 cursor-pointer hover:filter hover:blur-[3px] hover:opacity-100 transition duration-100 "
+                className=" button mb-0  flex text-[9vw] sm:text-[5.3vw] font-bold gap-x-3 items-center px-3 cursor-pointer hover:filter hover:blur-[3px] hover:opacity-100 transition duration-100 "
                 whileHover="hover" // Trigger the hover variant
             >
                 {/* Arrow animation */}

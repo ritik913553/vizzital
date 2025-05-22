@@ -21,7 +21,6 @@ function Project({ project, mover, count }) {
           <p className="mb-7">{project.description}</p>
           <div className="flex items-center gap-5">
             {project.live && <Button />}
-            {project.case && <Button title="Case Study" />}
           </div>
         </div>
       </div>

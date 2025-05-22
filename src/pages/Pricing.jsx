@@ -69,6 +69,8 @@
 //     }
 //   ];
 
+import { Link } from "react-router-dom";
+
 
 // const Pricing = () => {
 
@@ -218,7 +220,7 @@ const plans = [
 const Pricing = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16 px-4 sm:px-6 lg:px-8 text-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto mt-10 ">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-extrabold sm:text-5xl lg:text-6xl animate-fade-in">Flexible Pricing Plans</h1>
           <p className="mt-5 max-w-2xl mx-auto text-xl text-gray-300 animate-fade-in-delay">
@@ -265,9 +267,9 @@ const Pricing = () => {
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Whether you're starting out or scaling up, our pricing plans are built to empower your journey. Enjoy unmatched flexibility, expert support, and a feature-rich experience.
           </p>
-          <button className="mt-8 px-6 py-3 border border-indigo-600 text-indigo-300 hover:bg-indigo-700 hover:text-white rounded-md transition duration-300">
+          <Link to={'/contact'} className="mt-8 inline-block px-6 py-3 border border-indigo-600 text-indigo-300 hover:bg-indigo-700 hover:text-white rounded-md transition duration-300">
             Talk to Sales
-          </button>
+          </Link>
         </div>
       </div>
 

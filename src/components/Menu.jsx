@@ -39,15 +39,37 @@ const Menu = ({ setMenuIsOpen, menuIsOpen }) => {
                     <IoMdClose />{" "}
                 </h1>
             </div>
-            <div className=" flex flex-col sm:flex sm:flex-row justify-between items-end  sm:px-14 mt-20 sm:mt-15 ">
+            <div className=" flex flex-col sm:flex sm:flex-row justify-between items-end sm:items-center sm:px-14 mt-10 sm:mt-5 ">
                 <div className="flex flex-col w-full px-5">
-                    {["website", "digital", "pricing", "contact us"].map(
-                        (text, index) => {
-                            return <AnimatedButton key={index} text={text} />;
-                        }
-                    )}
+                    {[
+                        "home",
+                        "website",
+                        "digital",
+                        "pricing",
+                        "contact us",
+                        "about us",
+                    ].map((text, index) => {
+                        const isHidden =
+                            text.toLowerCase() === "website" ||
+                            text.toLowerCase() === "digital" ||
+                            text.toLowerCase() === "contact us";
+
+                        return (
+                            <div
+                                key={index}
+                                className={`${
+                                    isHidden ? "sm:hidden " : "block"
+                                } sm:mt-10 `} // Hide on larger screens (lg and above)
+                            >
+                                <AnimatedButton
+                                    closeMenu={closeMenu}
+                                    text={text}
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
-                <div className=" flex flex-col items-center w-full justify-center  p-10" >
+                <div className=" flex flex-col items-center w-full justify-center  p-10">
                     <h1 className="text-5xl hidden sm:block">Vizzital</h1>
                     <div className="mt-20 flex gap-x-7 font-bold text-2xl flex-wrap gap-10 justify-between sm:text-xl">
                         {["Linkedin", "Instagram", "Facebook", "X"].map(
