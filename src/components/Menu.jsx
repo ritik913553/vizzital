@@ -29,17 +29,17 @@ const Menu = ({ setMenuIsOpen, menuIsOpen }) => {
     }, [menuIsOpen]);
 
     return (
-        <div className="menu w-full h-screen bg-black text-white p-8 sm:p-22 pt-10 z-[1000] fixed top-0 left-0 -rotate-[90deg] scale-[1.2] origin-bottom-left ">
-            <div className="flex justify-end">
+        <div className="menu w-full h-screen bg-black text-white p-8 lg:p-22 pt-10 z-[1000] fixed top-0 left-0 -rotate-[90deg] scale-[1.2] origin-bottom-left ">
+            <div className="flex justify-end max-w-screen-2xl mx-auto 2xl:px-22">
                 <h1
                     onClick={closeMenu}
-                    className=" sm:text-4xl text-5xl cursor-pointer p-2 sm:p-0 sm:-mt-15 -mt-5"
+                    className=" lg:text-4xl text-5xl cursor-pointer p-2 lg:p-0 lg:-mt-15 -mt-5"
                 >
                     {" "}
                     <IoMdClose />{" "}
                 </h1>
             </div>
-            <div className=" flex flex-col sm:flex sm:flex-row justify-between items-end sm:items-center sm:px-14 mt-10 sm:mt-5 ">
+            <div className=" flex flex-col lg:flex lg:flex-row justify-between items-end lg:items-center lg:px-14 mt-10 lg:mt-5 ">
                 <div className="flex flex-col w-full px-5">
                     {[
                         "home",
@@ -58,8 +58,8 @@ const Menu = ({ setMenuIsOpen, menuIsOpen }) => {
                             <div
                                 key={index}
                                 className={`${
-                                    isHidden ? "sm:hidden " : "block"
-                                } sm:mt-10 `} // Hide on larger screens (lg and above)
+                                    isHidden ? "lg:hidden " : "block"
+                                } lg:mt-10 `} // Hide on larger screens (lg and above)
                             >
                                 <AnimatedButton
                                     closeMenu={closeMenu}
@@ -70,8 +70,8 @@ const Menu = ({ setMenuIsOpen, menuIsOpen }) => {
                     })}
                 </div>
                 <div className=" flex flex-col items-center w-full justify-center  p-10">
-                    <h1 className="text-5xl hidden sm:block">Vizzital</h1>
-                    <div className="mt-20 flex gap-x-7 font-bold text-2xl flex-wrap gap-10 justify-between sm:text-xl">
+                    <h1 className="text-5xl hidden lg:block">Vizztal</h1>
+                    <div className="mt-20 flex gap-x-7 font-bold text-2xl flex-wrap gap-10 justify-between lg:text-xl">
                         {["Linkedin", "Instagram", "Facebook", "X"].map(
                             (text, index) => {
                                 return (

@@ -34,7 +34,7 @@ const FetureData = [
 
 const FeatureCards = () => {
     return (
-        <div className="sm:mt-30 mt-20">
+        <div className="sm:mt-30 mt-20 max-w-screen-2xl mx-auto 2xl:px-22">
           {FetureData.map((feature,index)=>{
             return <FeatureCard key={index} feature={feature} />
           })}

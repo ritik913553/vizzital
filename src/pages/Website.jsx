@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import LetsConnect from "../components/LetsConnect";
 import Marquees from "../components/Marquees";
@@ -52,49 +52,52 @@ const Website = () => {
             img: "https://www.brandwizz.com/images/website/website-04.webp",
         },
     ];
+    useEffect(() => {
+        document.title = "Vizztal | Website";
+    }, []);
     return (
         <div className="font-sans text-black w-full min-h-screen">
             {/* Hero Section */}
-            <section className="relative p-6 md:p-22 text-white  h-screen">
+            <section className="relative p-6 lg:p-22 text-white  h-screen">
                 <div className="gradient-background  absolute top-0 left-0 w-full h-full -z-10"></div>
-                <h1 className="text-4xl md:text-7xl font-bold z-10 sm:mt-20 mt-30 overflow-hidden">
-                    <motion.span
-                        initial={{ y: "100%", opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }} //kewl ek bar chlega animation
-                        transition={{
-                            ease: [0.22, 1, 0.36, 1],
-                            duration: 0.8,
-                        }}
-                        className="inline-block origin-left"
-                    >
-                        We design custom-built websites that deliver real
-                        business results
-                    </motion.span>
-                </h1>
-                <p className="text-xl md:text-2xl max-w-3xl  mt-20 pb-10 sm:pb-0 overflow-hidden">
-                    <motion.span
-                        initial={{ y: "100%", opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }} //kewl ek bar chlega animation
-                        transition={{
-                            ease: [0.22, 1, 0.36, 1],
-                            duration: 0.8,
-                            delay: 0.3,
-                        }}
-                        className="inline-block origin-left"
-                    >
-                        Your website should be the mirror of your business. We
-                        listen to your story carefully, understand your
-                        marketing objectives, and craft beautiful websites that
-                        are{" "}
-                        <span className="font-black text-black">
-                            search engine
-                        </span>{" "}
-                        friendly and help in achieving your business perception
-                        as well as lead generation goals.
-                    </motion.span>
-                </p>
+                <div className="max-w-screen-2xl mx-auto 2xl:px-22">
+                    <h1 className="text-4xl md:text-7xl font-bold z-10 sm:mt-20 mt-30 overflow-hidden">
+                        <motion.span
+                            initial={{ y: "100%", opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                            }}
+                            className="inline-block origin-left"
+                        >
+                            We design custom-built websites that deliver real
+                            business results
+                        </motion.span>
+                    </h1>
+                    <p className="text-xl md:text-2xl max-w-3xl  mt-20 pb-10 sm:pb-0 overflow-hidden">
+                        <motion.span
+                            initial={{ y: "100%", opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                                delay: 0.3,
+                            }}
+                            className="inline-block origin-left"
+                        >
+                            Your website should be the mirror of your business.
+                            We listen to your story carefully, understand your
+                            marketing objectives, and craft beautiful websites
+                            that are{" "}
+                            <span className="font-black text-black">
+                                search engine
+                            </span>{" "}
+                            friendly and help in achieving your business
+                            perception as well as lead generation goals.
+                        </motion.span>
+                    </p>
+                </div>
             </section>
 
             {/* Marquee Section */}
@@ -105,13 +108,13 @@ const Website = () => {
             {/* Services Section */}
 
             <section className=" pt-20 bg-black text-white">
-                <div className="grid md:grid-cols-2  border divide-x divide-y border-gray-300">
+                <div className="grid lg:grid-cols-2  border divide-x divide-y border-gray-300 border-l-black border-r-black">
                     {servicesData.map((service, index) => (
                         <div
                             key={index}
-                            className="p-6 sm:px-22 flex flex-col border-gray-300 md:divide-x md:flex-row"
+                            className="p-6 lg:px-22 2xl:px-57 flex flex-col border-gray-300 md:divide-x md:flex-row"
                         >
-                            <div className="flex-1 p-4">
+                            <div className="flex-1 ">
                                 <h2 className="text-3xl font-bold mb-6">
                                     {service.header}
                                 </h2>
@@ -125,83 +128,87 @@ const Website = () => {
             <LetsConnect />
 
             {/* Unique Offer Section */}
-            <section className="sm:px-22 p-6 bg-gradient-to-b from-[#1859AB] to-[#0D3A73]  text-white">
-                <h1
-                    className="text-[10vw] leading-14 sm:leading-none  sm:text-[8vw]  font-black sm:font-bold"
-                    style={{
-                        background:
-                            "linear-gradient(273deg,rgba(240, 233, 43, 1) 0%, rgba(255, 20, 239, 1) 100%)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                    }}
-                >
-                    Our Secret Recipe
-                </h1>
-                <div className="">
-                    <p className="text-2xl mt-8 sm:mt-10">
-                        Four factors that help us ensure Digital Success for our
-                        customers.
-                    </p>
+            <section className="lg:px-22 p-6 bg-gradient-to-b from-[#1859AB] to-[#0D3A73]  text-white">
+                <div className="max-w-screen-2xl mx-auto 2xl:px-22">
+                    <h1
+                        className="text-[10vw] leading-14 sm:leading-none  sm:text-[8vw]  font-black sm:font-bold"
+                        style={{
+                            background:
+                                "linear-gradient(273deg,rgba(240, 233, 43, 1) 0%, rgba(255, 20, 239, 1) 100%)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                        }}
+                    >
+                        Our Secret Recipe
+                    </h1>
+                    <div className="">
+                        <p className="text-2xl mt-8 sm:mt-10">
+                            Four factors that help us ensure Digital Success for
+                            our customers.
+                        </p>
 
-                    <div className="space-y-10 relative mt-10 text-white">
-                        {recipeData.map((item, index) => (
-                            <>
-                                <div
-                                    key={index}
-                                    className="flex flex-col  sm:flex-row items-center  gap-6 sm:gap-3 bg-linear-65 from-purple-500 to-pink-500 rounded-lg shadow-md overflow-hidden "
-                                >
-                                    {/* Text Content */}
-                                    <div className="flex-1 p-6 pb-0 sm:pb-6">
-                                        <h3 className="text-2xl  mb-2 ">
-                                            {item.h3}
-                                        </h3>
-                                        <h2 className="text-3xl sm:text-4xl mt-5 mb-5 font-black  text-shadow-lg text-shadow-black">
-                                            {item.h5}
-                                        </h2>
-                                        <hr className="mb-3 sm:mt-10" />
-                                        <p className="text-lg leading-6 sm:mt-5">
-                                            {item.p}
-                                        </p>
+                        <div className="space-y-10 relative mt-10 text-white">
+                            {recipeData.map((item, index) => (
+                                <>
+                                    <div
+                                        key={index}
+                                        className="flex flex-col  sm:flex-row items-center  gap-6 sm:gap-3 bg-linear-65 from-purple-500 to-pink-500 rounded-lg shadow-md overflow-hidden "
+                                    >
+                                        {/* Text Content */}
+                                        <div className="flex-1 p-6 pb-0 sm:pb-6">
+                                            <h3 className="text-2xl  mb-2 ">
+                                                {item.h3}
+                                            </h3>
+                                            <h2 className="text-3xl sm:text-4xl mt-5 mb-5 font-black  text-shadow-lg text-shadow-black">
+                                                {item.h5}
+                                            </h2>
+                                            <hr className="mb-3 sm:mt-10" />
+                                            <p className="text-lg leading-6 sm:mt-5">
+                                                {item.p}
+                                            </p>
+                                        </div>
+
+                                        {/* Image */}
+
+                                        <div className="flex-1">
+                                            <img
+                                                src={item.img}
+                                                alt={item.h5}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
                                     </div>
-
-                                    {/* Image */}
-
-                                    <div className="flex-1">
-                                        <img
-                                            src={item.img}
-                                            alt={item.h5}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                </div>
-                            </>
-                        ))}
+                                </>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Stats Section */}
-            <section className="py-16 p-6 bg-gradient-to-b from-[#0D3B76] to-[#080807] text-white grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <h3 className="text-4xl font-bold mb-2">16</h3>
-                    <p>YEARS OF CORE</p>
-                    <p>WEB DESIGN</p>
-                    <p>EXPERIENCE</p>
-                </div>
-                <div>
-                    <h3 className="text-4xl font-bold mb-2">250</h3>
-                    <p>HIGHLY</p>
-                    <p>SATISFIED CLIENTS</p>
-                </div>
-                <div>
-                    <h3 className="text-4xl font-bold mb-2">350</h3>
-                    <p>AND MORE</p>
-                    <p>PROJECTS HANDLED</p>
-                </div>
-                <div>
-                    <h3 className="text-4xl font-bold mb-2">37</h3>
-                    <p>DIVERSE</p>
-                    <p>INDUSTRY VERTICALS</p>
+            <section className="py-16 p-6 bg-gradient-to-b from-[#0D3B76] to-[#080807] text-white ">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-sceen-2xl mx-auto 2xl:px-22">
+                    <div>
+                        <h3 className="text-4xl font-bold mb-2">16</h3>
+                        <p>YEARS OF CORE</p>
+                        <p>WEB DESIGN</p>
+                        <p>EXPERIENCE</p>
+                    </div>
+                    <div>
+                        <h3 className="text-4xl font-bold mb-2">250</h3>
+                        <p>HIGHLY</p>
+                        <p>SATISFIED CLIENTS</p>
+                    </div>
+                    <div>
+                        <h3 className="text-4xl font-bold mb-2">350</h3>
+                        <p>AND MORE</p>
+                        <p>PROJECTS HANDLED</p>
+                    </div>
+                    <div>
+                        <h3 className="text-4xl font-bold mb-2">37</h3>
+                        <p>DIVERSE</p>
+                        <p>INDUSTRY VERTICALS</p>
+                    </div>
                 </div>
             </section>
         </div>

@@ -1,31 +1,32 @@
 import react from "react";
 import { Link } from "react-router-dom";
+import video6 from "../assets/video-6.mp4";
 function Footer() {
     return (
         <div className="w-full  bg-[#080807] ">
-            <footer className=" max-w-screen-2xl  text-white mx-auto h-[85vh] sm:h-[100vh] sm:px-36 flex flex-col py-20 sm:py-7  px-5 overflow-hidden ">
+            <footer className=" max-w-screen-2xl  text-white mx-auto  h-auto lg:px-22 flex flex-col py-20 xl:py-7  px-5 overflow-hidden ">
                 <div className="relative z-[99] ">
-                    <h1 className="text-6xl sm:text-9xl text-[#E0CCBB]">Our</h1>
-                    <h1 className="text-6xl sm:text-9xl  text-[#E0CCBB]">
+                    <h1 className="text-6xl sm:text-8xl xl:text-9xl text-[#E0CCBB]">Our</h1>
+                    <h1 className="text-6xl sm:text-8xl xl:text-9xl  text-[#E0CCBB]">
                         Story
                     </h1>
-                    <div className="background -z-[99] absolute h-44 sm:h-[70vh] aspect-video -top-10 left-14 sm:left-[30%]  ">
+                    <div className="background -z-[99] absolute h-44 xl:h-[50vh] sm:h-[30vh] aspect-video -top-10 left-40 sm:left-[24%] sm:-top-20 xl:left-[30%]  md:left-[34%]  ">
                         <video
                             muted
                             autoPlay
                             loop
                             className="h-full w-full "
-                            src="./src/assets/video-6.mp4"
+                            src={video6}
                         ></video>
                     </div>
                 </div>
-                <p className="text-lg mt-12 sm:mt-8 opacity-65 leading-[1.2] sm:text-lg sm:w-1/3">
-                    The story behind Vizzital Solution is one of exploration,
+                <p className="text-lg sm:text-xl mt-12 xl:mt-8 opacity-65 leading-[1.2] xl:text-lg xl:w-1/3">
+                    The story behind Vizztal Solution is one of exploration,
                     creativity and curiosity.
                 </p>
 
-                <div className="divider w-full h-[1px] bg-[#E0CCBB] mt-10 sm:mt-16 opacity-70"></div>
-                <div className="flex flex-wrap justify-center sm:justify-start items-center gap-20 gap-y-10 sm:gap-44  mt-5 sm:mt-14">
+                <div className="divider w-full h-[1px] bg-[#E0CCBB] mt-10 xl:mt-16 opacity-70"></div>
+                <div className="flex flex-wrap justify-center xl:justify-start items-center gap-20 gap-y-10 xl:gap-44  mt-5 xl:mt-14 sm:text-lg">
                     <ul className="">
                         <li>
                             {" "}

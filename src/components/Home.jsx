@@ -9,10 +9,12 @@ const stripeCount = 14;
 
 const Home = ({ animate }) => {
     const [animationComplete, setAnimationComplete] = useState(false);
-    
+    useEffect(()=>{
+        document.title = "Vizztal | Home";
+    },[])
     return (
         <div className="">
-            <div className="relative w-full overflow-hidden">
+            <div className="relative w-full overflow-hidden ">
                 {/* Stripe mask - covers the content initially */}
                 {!animationComplete && (
                     <div className="absolute inset-0 flex z-10">
@@ -40,50 +42,52 @@ const Home = ({ animate }) => {
 
                 <Landing />
             </div>
-            <div className="w-full h-full bg-black py-10 sm:p-22 p-6">
+            <div className="w-full h-full bg-black py-10 xl:p-22 p-6">
                 <Projects />
-                <div className="flex justify-center mt-10 items-center text-white font-bold">
-                    <button className="py-3 px-6 bg-[#1A82FC] rounded-lg">
+                <div className="flex justify-center mt-10 items-center text-white font-bold  max-w-screen-2xl mx-auto 2xl:px-22">
+                    <button className="py-3 px-6 -ml-10 bg-[#1A82FC] rounded-lg">
                         See All Work
                     </button>
                 </div>
             </div>
-            <div className="interest-in-colobrating p-6 sm:p-22 bg-gradient-to-b from-black to-[#1859AB] pb-12">
-                <h1
-                    className="text-[13vw] sm:text-[7vw] font-bold text-transparent leading-12 sm:leading-17  overflow-hidden"
-                    style={{
-                        background:
-                            "linear-gradient(279deg,rgba(250, 36, 9, 1) 0%, rgba(250, 36, 9, 1) 20%, rgba(212, 205, 23, 1) 57%, rgba(250, 25, 235, 1) 100%)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                    }}
-                >
-                    Interested In
-                </h1>
-                <h1
-                    className="text-[13vw] sm:text-[7vw] font-bold text-transparent  overflow-hidden"
-                    style={{
-                        background:
-                            "linear-gradient(279deg,rgba(250, 36, 9, 1) 0%, rgba(250, 36, 9, 1) 20%, rgba(212, 205, 23, 1) 57%, rgba(250, 25, 235, 1) 100%)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                    }}
-                >
-                    Collaborating?
-                </h1>
-                <div className="overflow-hidden">
-                    <motion.div
-                        initial={{ y: "100%", opacity: 0 }}
-                        whileInView={{  y: 0, opacity: 1 }}
-                        viewport={{ once: false }} //kewl ek bar chlega animation
-                        transition={{
-                            ease: [0.22, 1, 0.36, 1],
-                            duration: 0.8,
+            <div className="interest-in-colobrating p-6  xl:p-22 bg-gradient-to-b from-black to-[#1859AB] pb-12">
+                <div className="max-w-screen-2xl mx-auto 2xl:px-22">
+                    <h1
+                        className="text-[13vw]  xl:text-[7vw] font-bold text-transparent leading-12 sm:leading-17 md:leading-24 lg:leading-28   overflow-hidden"
+                        style={{
+                            background:
+                                "linear-gradient(279deg,rgba(250, 36, 9, 1) 0%, rgba(250, 36, 9, 1) 20%, rgba(212, 205, 23, 1) 57%, rgba(250, 25, 235, 1) 100%)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
                         }}
-                        className="inline-block mt-1  px-7 py-3 text-xl bg-blue-600 text-white rounded-lg font-bold origin-bottom-left"
                     >
-                        <Link to="/contact">Request Meeting</Link>
-                    </motion.div>
+                        Interested In
+                    </h1>
+                    <h1
+                        className="text-[13vw]  xl:text-[7vw] font-bold text-transparent  overflow-hidden"
+                        style={{
+                            background:
+                                "linear-gradient(279deg,rgba(250, 36, 9, 1) 0%, rgba(250, 36, 9, 1) 20%, rgba(212, 205, 23, 1) 57%, rgba(250, 25, 235, 1) 100%)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                        }}
+                    >
+                        Collaborating?
+                    </h1>
+                    <div className="overflow-hidden">
+                        <motion.div
+                            initial={{ y: "100%", opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: false }} //kewl ek bar chlega animation
+                            transition={{
+                                ease: [0.22, 1, 0.36, 1],
+                                duration: 0.8,
+                            }}
+                            className="inline-block mt-1  px-7 py-3 text-xl bg-blue-600 text-white rounded-lg font-bold origin-bottom-left"
+                        >
+                            <Link to="/contact">Request Meeting</Link>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </div>

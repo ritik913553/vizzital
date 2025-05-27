@@ -5,6 +5,8 @@ import video2 from "../assets/video2.webm";
 import video3 from "../assets/video3.webm";
 import video4 from "../assets/video4.webm";
 import Project from "./Project";
+import { FaArrowRight } from "react-icons/fa6";
+
 import ProjectPhone from "./ProjectPhone";
 
 function Projects() {
@@ -14,28 +16,32 @@ function Projects() {
             description:
                 "The Enneagram Type 1, also known as The Reformer, is a personality type characterized by a strong sense of right and wrong, with a desire to improve and reform themselves and others.",
             live: true,
-            video: video1
+            video: video1,
+            link:"https://ritik913553.github.io/Obys_Agency_Clone_Project/"
         },
         {
             title: "TTR",
             description:
                 "They are conscientious, ethical, and well-organized, striving to maintain high standards, but can also be critical and perfectionistic. This type is often driven by a fear of money hero is  ",
             live: true,
-            video:video2
+            video: video2,
+            link:"https://hotel-website-swart-six.vercel.app/"
         },
         {
             title: "YIR 2022",
             description:
                 "n contrast, Para One, a French electronic music producer and film director, is a distinct entity, known for his work on soundtracks for films like “Water Lilies” and “Portrait of a Lady on Fire”",
             live: true,
-            video:video3
+            video: video3,
+            link:"https://exo-ape-project.vercel.app/"
         },
         {
             title: "Yahoo!",
             description:
                 "as well as his contributions to French rap group TTC. The term “one” can also refer to a single unit or thing, as defined by Ritik.Hard work is necessary for ourself",
             live: true,
-            video:video4
+            video: video4,
+            link:"https://refokus-project-neon.vercel.app/"
         },
     ];
 
@@ -46,7 +52,7 @@ function Projects() {
     };
     return (
         <>
-            <div className=" hidden md:block relative">
+            <div className=" hidden xl:block relative   ">
                 {projects.map((val, index) => (
                     <Project
                         key={index}
@@ -137,7 +143,7 @@ function Projects() {
                     </motion.div>
                 </div>
             </div>
-            <div className="block md:hidden ">
+            <div className="xl:hidden grid grid-cols-1 md:grid-cols-2 gap-6">
                 {projects.map((project, index) => (
                     <ProjectPhone key={index} project={project} />
                 ))}

@@ -8,24 +8,12 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Pricing from "./pages/Pricing";
+import AboutUs from "./pages/AboutUs";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
     const [animateHome, setAnimateHome] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY >= window.innerHeight) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -42,8 +30,9 @@ const App = () => {
                 <Loading />
             ) : (
                 <>
-                    <Navbar scrolled={scrolled} />
+                    <Navbar />
 
+                    <ScrollToTop />
                     <Routes>
                         <Route
                             path="/"
@@ -53,7 +42,7 @@ const App = () => {
                         <Route path="/digital" element={<Digital />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/pricing" element={<Pricing />} />
-                        {/* <Route path="/about" element={<About />} /> */}
+                        <Route path="/about" element={<AboutUs />} />
 
                         {/* <Route path="/projects" element={<Projects />} /> */}
                     </Routes>
