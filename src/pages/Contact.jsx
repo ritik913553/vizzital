@@ -28,8 +28,8 @@ const initialForm = {
 };
 const Contact = () => {
     useEffect(() => {
-    document.title = "Vizztal | Contact";
-  }, []);
+        document.title = "Vizztal | Contact";
+    }, []);
     const [form, setForm] = useState(initialForm);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState("");
@@ -77,7 +77,18 @@ Project: ${form.project}
 Referral: ${form.referral || "N/A"}
         `.trim(),
         };
-        console.log(payload);
+        const whatsappPayload = {
+            firstName: form.firstName,
+            lastName: form.lastName,
+            email: form.email,
+            phone: form.phone,
+            company: form.company,
+            service: form.service,
+            budget: form.budget,
+            project: form.project,
+            referredBy: form.referral || "N/A",
+        };
+        console.log(whatsappPayload);
         try {
             // Replace '/api/contact' with your actual API endpoint
             const res = await fetch(
@@ -86,6 +97,14 @@ Referral: ${form.referral || "N/A"}
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload),
+                }
+            );
+            await fetch(
+                "https://send-whatsapp-message-lzn1.onrender.com/api/vizzital-solution",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(whatsappPayload),
                 }
             );
             console.log(res);
