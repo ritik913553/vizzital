@@ -91,16 +91,17 @@ Referral: ${form.referral || "N/A"}
         console.log(whatsappPayload);
         try {
             // Replace '/api/contact' with your actual API endpoint
-            const res = await fetch(
-                "https://vizzbackend-rsqi.onrender.com/api/mail/send",
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload),
-                }
-            );
+            // const res = await fetch(
+            //     "https://vizzbackend-rsqi.onrender.com/api/mail/send",
+            //     {
+            //         method: "POST",
+            //         headers: { "Content-Type": "application/json" },
+            //         body: JSON.stringify(payload),
+            //     }
+            // );
             await fetch(
                 "https://send-whatsapp-message-lzn1.onrender.com/api/vizzital-solution",
+                // "http://localhost:3000/api/vizzital-solution",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
