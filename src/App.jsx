@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import Pricing from "./pages/Pricing";
 import AboutUs from "./pages/AboutUs";
 import ScrollToTop from "./components/ScrollToTop";
+import NotFound from "./components/NotFound";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -45,6 +46,7 @@ const App = () => {
                         <Route path="/about" element={<AboutUs />} />
 
                         {/* <Route path="/projects" element={<Projects />} /> */}
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                     <Footer />
                 </>
